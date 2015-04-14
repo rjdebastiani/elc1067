@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1427825166 source:c:\users\rafael j. debastiani\documents\trabalhos\laboratório de programação\lab2\elc1067\t3\carta.c
+	<stdio.h>
+	<stdlib.h>
+	"carta.h"
+	"memo.h"
+
+1427825166 c:\users\rafael j. debastiani\documents\trabalhos\laboratório de programação\lab2\elc1067\t3\carta.h
+	<stdlib.h>
+	<stdbool.h>
+
+1427825166 c:\users\rafael j. debastiani\documents\trabalhos\laboratório de programação\lab2\elc1067\t3\memo.h
+
+1427825166 source:c:\users\rafael j. debastiani\documents\trabalhos\laboratório de programação\lab2\elc1067\t3\memo.c
+	<stdio.h>
+	<stdlib.h>
+
+1427825166 source:c:\users\rafael j. debastiani\documents\trabalhos\laboratório de programação\lab2\elc1067\t3\principal.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	"vetor.h"
+	"carta.h"
+	"memo.h"
+
+1427825166 c:\users\rafael j. debastiani\documents\trabalhos\laboratório de programação\lab2\elc1067\t3\vetor.h
+	<stdbool.h>
+	"carta.h"
+
+1429021043 source:c:\users\rafael j. debastiani\documents\trabalhos\laboratório de programação\lab2\elc1067\t3\vetor.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"vetor.h"
+	"carta.h"
+	"memo.h"
+

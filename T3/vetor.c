@@ -3,20 +3,20 @@
  * TAD que implementa um vetor dinamico.
  *
  * The MIT License (MIT)
- * 
+ *
  * Copyright (c) 2014, 2015 João V. Lima, UFSM
  *               2005       Benhur Stein, UFSM
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -35,54 +35,50 @@
 #include "memo.h"
 
 struct vetor {
-	/* TODO aqui */
-	/* defina os campos da TAD vetor aqui */
-
 	carta* baralho;   /* baralho - vetor de cartas */
 	int n;		/* número de cartas */
 };
 
-vetor_t* vetor_cria(void)
-{
-	struct vetor *vet = (struct vetor*)memo_aloca(sizeof(struct vetor));
+vetor_t* vetor_cria(void){
+	int i;
+
+	vetor_t *vet = (vetor_t*)memo_aloca(sizeof(vetor_t));
+	vet->baralho = (carta*)memo_aloca(52*sizeof(carta));
 	vet->n = 0;
-	/* TODO aqui */
+
+	for(i=0; i<52; i++)
+        vet->baralho[i] = NULL;     //deixa o vetor de cartas vazio
+
 	return vet;
 }
 
-void vetor_destroi(vetor_t* vet)
-{
+void vetor_destroi(vetor_t* vet){
 	/* TODO aqui */
-	memo_libera(vet);	
+	memo_libera(vet);
 }
 
-int vetor_numelem(vetor_t *vet)
-{
+int vetor_numelem(vetor_t *vet){
 	/* TODO aqui */
 	return vet->n;
 }
 
-void vetor_insere_carta(vetor_t *vet, int indice, carta c)
-{
+void vetor_insere_carta(vetor_t *vet, int indice, carta c){
 	/* TODO aqui */
 	vet->n++;
 }
 
-carta vetor_remove_carta(vetor_t *vet, int indice)
-{
+carta vetor_remove_carta(vetor_t *vet, int indice){
 	/* TODO aqui */
 	vet->n--;
 	return NULL;
 }
 
-carta vetor_acessa_carta(vetor_t *vet, int indice)
-{
+carta vetor_acessa_carta(vetor_t *vet, int indice){
 	/* TODO aqui */
 	return NULL;
 }
 
-bool vetor_valido(vetor_t *vet)
-{
+bool vetor_valido(vetor_t *vet){
 	/* TODO aqui */
 	return false;
 }
