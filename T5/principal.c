@@ -1,22 +1,21 @@
 /*
- * vetor.c
- * TAD que implementa um vetor dinamico.
+ * principal.c
+ * Implementação de editor de texto gráfico.
  *
  * The MIT License (MIT)
- *
- * Copyright (c) 2014, 2015 João V. Lima, UFSM
- *               2005       Benhur Stein, UFSM
- *
+ * 
+ * Copyright (c) 2014, 2015 João V. F. Lima, UFSM
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * 
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,59 +25,25 @@
  * SOFTWARE.
  */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <unistd.h>
 
-#include "vetor.h"
-#include "carta.h"
+#include "texto.h"
 #include "memo.h"
 
-struct vetor {
-	carta* baralho;   /* baralho - vetor de cartas */
-	int n;		/* número de cartas */
-};
+int main(int argc, char **argv)
+{
+	texto_t* texto;
+	texto = texto_inicia();
+	
+	/* enquanto continua execução */
+	while(texto_processa_comandos(texto) == true) {
+		texto_atualiza_tela(texto);
+	}
+	texto_destroi(texto);
+	memo_relatorio();
 
-vetor_t* vetor_cria(void){
-	int i;
-
-	struct vetor *vet = (vetor*)memo_aloca(sizeof(vetor));
-	vet->baralho = (carta*)memo_aloca(52*sizeof(carta));
-	vet->n = 0;
-
-	for(i=0; i<52; i++)
-        vet->baralho[i] = NULL;     //deixa o vetor de cartas vazio
-
-	return vet;
-}
-
-void vetor_destroi(vetor_t* vet){
-	memo_libera(vet->baralho)
-	memo_libera(vet);
-}
-
-int vetor_numelem(vetor_t *vet){
-	/* TODO aqui */
-	return vet->n;
-}
-
-void vetor_insere_carta(vetor_t *vet, int indice, carta c){
-	/* TODO aqui */
-	vet->n++;
-}
-
-carta vetor_remove_carta(vetor_t *vet, int indice){
-	/* TODO aqui */
-	vet->n--;
-	return NULL;
-}
-
-carta vetor_acessa_carta(vetor_t *vet, int indice){
-	/* TODO aqui */
-	return NULL;
-}
-
-bool vetor_valido(vetor_t *vet){
-	/* TODO aqui */
-	return false;
+	return 0;
 }

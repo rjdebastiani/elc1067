@@ -1,22 +1,21 @@
 /*
- * vetor.c
- * TAD que implementa um vetor dinamico.
+ * geom.c
+ * Funções geométricas para TADs ponto, retangulo, e círculo.
  *
  * The MIT License (MIT)
- *
- * Copyright (c) 2014, 2015 João V. Lima, UFSM
- *               2005       Benhur Stein, UFSM
- *
+ * 
+ * Copyright (c) 2014, 2015 João V. F. Lima, UFSM
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * 
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,59 +25,44 @@
  * SOFTWARE.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include "geom.h"
+#include <math.h>
 
-#include "vetor.h"
-#include "carta.h"
-#include "memo.h"
+// Funções
 
-struct vetor {
-	carta* baralho;   /* baralho - vetor de cartas */
-	int n;		/* número de cartas */
-};
-
-vetor_t* vetor_cria(void){
-	int i;
-
-	struct vetor *vet = (vetor*)memo_aloca(sizeof(vetor));
-	vet->baralho = (carta*)memo_aloca(52*sizeof(carta));
-	vet->n = 0;
-
-	for(i=0; i<52; i++)
-        vet->baralho[i] = NULL;     //deixa o vetor de cartas vazio
-
-	return vet;
+// retorna a distancia entre dois pontos
+float distancia(ponto_t a, ponto_t b)
+{
+    return 0;
 }
 
-void vetor_destroi(vetor_t* vet){
-	memo_libera(vet->baralho)
-	memo_libera(vet);
+// retorna true se o ponto estiver dentro do circulo, false caso contrario
+bool ptemcirc(ponto_t p, circulo_t c)
+{
+    return false;
 }
 
-int vetor_numelem(vetor_t *vet){
-	/* TODO aqui */
-	return vet->n;
+// retorna true se o ponto estiver dentro do retangulo
+bool ptemret(ponto_t a, retangulo_t r)
+{
+    return false;
 }
 
-void vetor_insere_carta(vetor_t *vet, int indice, carta c){
-	/* TODO aqui */
-	vet->n++;
+// retorna true se houver uma interseccao entre o circulo e o retangulo
+bool intercr(circulo_t c, retangulo_t r)
+{
+    return false;
 }
 
-carta vetor_remove_carta(vetor_t *vet, int indice){
-	/* TODO aqui */
-	vet->n--;
-	return NULL;
+// retorna true se houver uma interseccao entre os dois retangulos
+bool interrr(retangulo_t r1, retangulo_t r2)
+{
+    return false;
 }
 
-carta vetor_acessa_carta(vetor_t *vet, int indice){
-	/* TODO aqui */
-	return NULL;
+// retorna true se houver uma interseccao entre os dois circulos
+bool intercc(circulo_t c1, circulo_t c2)
+{
+    return false;
 }
 
-bool vetor_valido(vetor_t *vet){
-	/* TODO aqui */
-	return false;
-}
